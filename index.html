@@ -28,6 +28,7 @@
     <section id="hero" class="hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-white">
         <main>
           <h4>Kepada Bapak/Ibu/Saudara/i,</h4>
+          <h3 id="guest-name" class="guest-name"></h3>
           <h1>Yarman Halawa & Ratna Juni Astuti Zai</h1>
           <p>Akan melangsukan resepsi pernikahan dalam :</p>
           <div class="simply-countdown"></div>
@@ -46,13 +47,13 @@
             <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Wedding Web</h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
-          <div class="offcanvas-body">
+          <!-- <div class="offcanvas-body">
             <div class="navbar-nav ms-auto">
               <a class="nav-link" href="#Home">Home</a>
               <a class="nav-link" href="#Info">Info</a>
               <a class="nav-link" href="#gift">Gift</a>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </nav>
@@ -284,6 +285,17 @@
           })
           });
         });
+
+const urlParams = new URLSearchParams(window.location.search);
+  const guest = urlParams.get('to');
+
+  const guestNameElement = document.getElementById('guest-name');
+
+  if(guest){
+    guestNameElement.innerText = decodeURIComponent(guest);
+  } else {
+    guestNameElement.style.display = 'none';
+  }
 
 </script>
 
